@@ -16,4 +16,15 @@ public class ListServlet extends HttpServlet {
 		req.setAttribute("todos", Storage.getAll());
 		req.getRequestDispatcher("WEB-INF/list.jsp").forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+
+        String[] ids = req.getParameterValues("id");
+        for (String doneId : ids) {
+            Storage.markAsDone(Long.parseLong(doneId));
+        }
+        resp.sendRedirect("list");
+	}
 }

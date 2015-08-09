@@ -6,7 +6,7 @@
 		<br>
 		<textarea rows="3" cols="" name="desc"></textarea>
 		<br>
-		<input type="date" name="dueDate">
+		 <input type="date" name="dueDate">
 		<br>
 		<button>Create new Todo</button>
 	</form>

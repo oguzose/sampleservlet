@@ -1,5 +1,6 @@
 package tr.org.lkd.lyk2015.sampleservlet;
 
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
  */
 public class Storage {
 
+	//map key value şeklinde çalışır, Long id, Todo içerik
 	private static Map<Long, Todo> todos = new HashMap<>();
 	private static Long idCounter = 100L;
 	
@@ -30,6 +32,16 @@ public class Storage {
 	public static void markAsDone(Long id){
 		Todo todo = todos.get(id);
 		todo.setDone(true);
+	}
+	
+	public static void update(Long id, String name, String desc, Calendar dueDate, Boolean done){
+		
+		Todo todo = todos.get(id);
+		todo.setName(name);
+		todo.setDesc(desc);
+		todo.setDueDate(dueDate);
+		todo.setDone(done);
+		
 	}
 	
 }
